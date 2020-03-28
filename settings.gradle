@@ -1,0 +1,2 @@
+rootProject.name='GRE Words Practice'
+include ':app'
