@@ -19,6 +19,9 @@ public interface SavedWordDao {
     @Delete
     void deleteSavedWord(SavedWord word);
 
+    @Query("DELETE FROM saved_words")
+    void deleteAllSavedWords();
+
     @Query("SELECT * FROM saved_words WHERE word LIKE :theword")
     List<SavedWord> getSavedWord(String theword);
 

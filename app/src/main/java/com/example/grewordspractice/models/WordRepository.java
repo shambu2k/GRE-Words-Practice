@@ -77,6 +77,8 @@ public class WordRepository {
 
     public void deleteAllWords() { new DeleteAllWordsAsyncTask(wordDao).execute();}
 
+    public void deleteAllSavedWords() { new DeleteAllSavedWordsAsyncTask(savedWordDao).execute(); }
+
     public GetSomeWordsTask fetchRandomWords(WordsApi wordsApi){
         return new GetSomeWordsTask(wordsApi);
     }
@@ -87,7 +89,7 @@ public class WordRepository {
         progressDialog.show();
 
         MutableLiveData<WordJson> mutableWordJson = new MutableLiveData<>();
-        Call<WordJson> call = wordsApi.getWordData("26af18f6", "7e013e30eefe409c6f95b42c979b6fcf", word_str);
+        Call<WordJson> call = wordsApi.getWordData("df391a54", "08fc8169d6b54e2557c26932e4cf55a1", word_str);
         call.enqueue(new Callback<WordJson>() {
             @Override
             public void onResponse(Call<WordJson> call, Response<WordJson> response) {
@@ -191,6 +193,21 @@ public class WordRepository {
         }
     }
 
+    private static class DeleteAllSavedWordsAsyncTask extends AsyncTask<Void, Void, Void>{
+
+        private SavedWordDao dao;
+
+        public DeleteAllSavedWordsAsyncTask(SavedWordDao dao) {
+            this.dao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            dao.deleteAllSavedWords();
+            return null;
+        }
+    }
+
     public class GetSomeWordsTask extends AsyncTask<Integer, Void, Void> {
 
         WordsApi wordsApi;
@@ -209,7 +226,7 @@ public class WordRepository {
             if(preferences.getString(SP_SEEN_LIST_KEY, "").equals("")) {
                 Log.d(TAG, "doInBackground: Just inside: nonRepnums.size " + nonRepNums.size() + "SeenList size " + seenList.size());
                 for (int j = 0; j < nonRepNums.size(); j++) {
-                        Call<WordJson> call2 = wordsApi.getWordData("26af18f6", "7e013e30eefe409c6f95b42c979b6fcf", RANDOM_WORD.get(nonRepNums.get(j)));
+                        Call<WordJson> call2 = wordsApi.getWordData("df391a54", "08fc8169d6b54e2557c26932e4cf55a1", RANDOM_WORD.get(nonRepNums.get(j)));
                         Log.d(TAG, "doInBackground: index of Word = " + RANDOM_WORD.get(nonRepNums.get(j)));
                         int finalJ = j;
                         call2.enqueue(new Callback<WordJson>() {
@@ -218,7 +235,6 @@ public class WordRepository {
                                 Log.d(TAG, "onResponse of def: " + response.body());
                                 if (response.body() != null) {
                                     wordJson = response.body();
-
                                     if (wordJson.getError() == null) {
                                         Log.d(TAG, "onResponse: Word from Response " + wordJson.getWord());
                                         if (wordJson.getResultsJsonList().get(0).
@@ -276,7 +292,7 @@ public class WordRepository {
                 Log.d(TAG, "doInBackground: Just inside: nonRepnums.size " + nonRepNums.size() + "SeenList size " + seenList.size());
                 for (int j = 0; j < nonRepNums.size(); j++) {
                     if (Collections.frequency(seenList, nonRepNums.get(j)) == 0) {
-                        Call<WordJson> call2 = wordsApi.getWordData("26af18f6", "7e013e30eefe409c6f95b42c979b6fcf", RANDOM_WORD.get(nonRepNums.get(j)));
+                        Call<WordJson> call2 = wordsApi.getWordData("df391a54", "08fc8169d6b54e2557c26932e4cf55a1", RANDOM_WORD.get(nonRepNums.get(j)));
                         Log.d(TAG, "doInBackground: index of Word = " + RANDOM_WORD.get(nonRepNums.get(j)));
                         int finalJ = j;
                         call2.enqueue(new Callback<WordJson>() {

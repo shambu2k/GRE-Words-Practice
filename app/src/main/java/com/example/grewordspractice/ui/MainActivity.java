@@ -150,6 +150,11 @@ public class MainActivity extends BaseActivity implements OnItemSwiped, View.OnC
         adapter.removeTop();
         seenListIndexes.addToSeenList(RANDOM_WORD.indexOf(word.getWord()));
         seenListIndexes.saveInSP(getApplication());
+        if(adapter.getItemCount()==0){
+            rv.setVisibility(View.GONE);
+            np.setVisibility(View.VISIBLE);
+            button_start_new.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -161,6 +166,11 @@ public class MainActivity extends BaseActivity implements OnItemSwiped, View.OnC
         adapter.removeTop();
         seenListIndexes.addToSeenList(RANDOM_WORD.indexOf(word.getWord()));
         seenListIndexes.saveInSP(getApplication());
+        if(adapter.getItemCount()==0){
+            rv.setVisibility(View.GONE);
+            np.setVisibility(View.VISIBLE);
+            button_start_new.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.example.grewordspractice.adapters;
+package com.example.grewordspractice;
 
 public interface AsyncCallBack {
     void getPracticeDataFromVM();

@@ -25,6 +25,14 @@ public class SavedWordsActivityViewModel extends AndroidViewModel {
         wordRepository = new WordRepository(application);
     }
 
+    public void delete(SavedWord savedWord){
+        wordRepository.deleteSavedWord(savedWord);
+    }
+
+    public void deleteAll(){
+        wordRepository.deleteAllSavedWords();
+    }
+
     public LiveData<List<SavedWord>> getAllLiveSavedWords(){
         return wordRepository.getAllLiveSavedWords();
     }

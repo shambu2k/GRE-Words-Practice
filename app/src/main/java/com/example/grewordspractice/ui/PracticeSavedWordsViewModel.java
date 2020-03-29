@@ -9,7 +9,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.grewordspractice.adapters.AsyncCallBack;
+import com.example.grewordspractice.AsyncCallBack;
 import com.example.grewordspractice.models.SavedWord;
 import com.example.grewordspractice.models.WordRepository;
 import com.example.grewordspractice.utils.DateToMinHours;
@@ -25,7 +25,6 @@ public class PracticeSavedWordsViewModel extends AndroidViewModel {
     private static final String TAG = "PracticeSavedWordsViewM";
     private WordRepository wordRepository;
     private List<SavedWord> allSavedWords = new ArrayList<>();
-    private LiveData<Boolean> filterLiveData = new MutableLiveData<Boolean>();
 
     @Inject
     public PracticeSavedWordsViewModel(@NonNull Application application) {

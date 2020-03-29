@@ -4,16 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.grewordspractice.BaseActivity;
 import com.example.grewordspractice.R;
 import com.example.grewordspractice.ViewModels.ViewModelProviderFactory;
-import com.example.grewordspractice.adapters.AsyncCallBack;
+import com.example.grewordspractice.AsyncCallBack;
 import com.example.grewordspractice.adapters.PracticeListAdapter;
-import com.example.grewordspractice.adapters.WordListAdapter;
 import com.example.grewordspractice.models.SavedWord;
 import com.google.gson.Gson;
 
@@ -81,13 +79,14 @@ public class PracticeSavedWordsActivity extends BaseActivity implements OnItemSw
                 true, false, false, new Date(), 0,savedWord.getTotTaken()+1));
         adapter.removeTop();
         anaysisList.add(savedWord);
-        if(adapter.getPracticeWordsList().size()==0){
+        if(adapter.getItemCount()==0){
             Intent intent = new Intent(this, AnalysisActivity.class);
             Gson gson = new Gson();
             String analysisJson = gson.toJson(anaysisList);
             Log.d(TAG, "onItemSwipedLeft: analysis JSON "+analysisJson);
             intent.putExtra("ANALYSIS", analysisJson);
             startActivity(intent);
+            finish();
         }
     }
 
@@ -103,12 +102,13 @@ public class PracticeSavedWordsActivity extends BaseActivity implements OnItemSw
                     false, false, true, new Date(), savedWord.getTotCorrect()+1,savedWord.getTotTaken()+1));
         }
         adapter.removeTop();
-        if(adapter.getPracticeWordsList().size()==0){
+        if(adapter.getItemCount()==0){
             Intent intent = new Intent(this, AnalysisActivity.class);
             Gson gson = new Gson();
             String analysisJson = gson.toJson(anaysisList);
             intent.putExtra("ANALYSIS", analysisJson);
             startActivity(intent);
+            finish();
         }
 
     }
