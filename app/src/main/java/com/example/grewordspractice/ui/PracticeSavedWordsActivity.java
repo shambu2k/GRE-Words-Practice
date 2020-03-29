@@ -2,6 +2,7 @@ package com.example.grewordspractice.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -14,7 +15,9 @@ import com.example.grewordspractice.adapters.AsyncCallBack;
 import com.example.grewordspractice.adapters.PracticeListAdapter;
 import com.example.grewordspractice.adapters.WordListAdapter;
 import com.example.grewordspractice.models.SavedWord;
+import com.google.gson.Gson;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -27,6 +30,7 @@ import swipeable.com.layoutmanager.touchelper.ItemTouchHelper;
 
 public class PracticeSavedWordsActivity extends BaseActivity implements OnItemSwiped, AsyncCallBack {
 
+    private static final String TAG = "PracticeSavedWordsActiv";
     @Inject
     ViewModelProviderFactory factory;
 
@@ -34,13 +38,14 @@ public class PracticeSavedWordsActivity extends BaseActivity implements OnItemSw
 
     private RecyclerView rv;
     private PracticeListAdapter adapter;
+    private List<SavedWord> anaysisList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_practice_saved_words);
         rv = findViewById(R.id.practice_rv);
-
+        anaysisList = new ArrayList<>();
         SwipeableTouchHelperCallback swipeableTouchHelperCallback =
                 new SwipeableTouchHelperCallback(this);
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(swipeableTouchHelperCallback);
@@ -75,8 +80,13 @@ public class PracticeSavedWordsActivity extends BaseActivity implements OnItemSw
         viewModel.insertSavedWord(new SavedWord(savedWord.getWord(), savedWord.getDefinitions(), savedWord.getSynonym(),
                 true, false, false, new Date(), 0,savedWord.getTotTaken()+1));
         adapter.removeTop();
+        anaysisList.add(savedWord);
         if(adapter.getPracticeWordsList().size()==0){
             Intent intent = new Intent(this, AnalysisActivity.class);
+            Gson gson = new Gson();
+            String analysisJson = gson.toJson(anaysisList);
+            Log.d(TAG, "onItemSwipedLeft: analysis JSON "+analysisJson);
+            intent.putExtra("ANALYSIS", analysisJson);
             startActivity(intent);
         }
     }
@@ -95,8 +105,12 @@ public class PracticeSavedWordsActivity extends BaseActivity implements OnItemSw
         adapter.removeTop();
         if(adapter.getPracticeWordsList().size()==0){
             Intent intent = new Intent(this, AnalysisActivity.class);
+            Gson gson = new Gson();
+            String analysisJson = gson.toJson(anaysisList);
+            intent.putExtra("ANALYSIS", analysisJson);
             startActivity(intent);
         }
+
     }
 
     @Override
