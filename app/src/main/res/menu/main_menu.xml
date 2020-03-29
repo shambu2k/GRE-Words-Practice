@@ -2,11 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/action_savedCards"
-        android:title="Saved Words"
-        app:showAsAction="never"/>
     <item android:id="@+id/action_newCard"
         android:title="Add New Word"
         app:showAsAction="never"/>
+    <item android:id="@+id/action_practiceCard"
+        android:title="Practice"
+        app:showAsAction="never"/>
+    <item android:id="@+id/action_savedCards"
+        android:title="Saved Words"
+        app:showAsAction="never"/>
+
 
 </menu>

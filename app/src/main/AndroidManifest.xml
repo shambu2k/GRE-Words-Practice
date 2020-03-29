@@ -12,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddNewWord"></activity>
+        <activity android:name=".ui.AnalysisActivity"></activity>
+        <activity android:name=".ui.PracticeSavedWordsActivity" />
+        <activity android:name=".ui.SavedWordsActivity" />
+        <activity android:name=".ui.AddNewWordActivity" />
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

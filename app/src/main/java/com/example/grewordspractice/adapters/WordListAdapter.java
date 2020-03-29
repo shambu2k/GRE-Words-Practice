@@ -1,4 +1,4 @@
-package com.example.grewordspractice;
+package com.example.grewordspractice.adapters;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +13,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.grewordspractice.OnLoadMoreListener;
+import com.example.grewordspractice.R;
 import com.example.grewordspractice.models.Word;
 
 import java.util.ArrayList;
@@ -27,14 +29,13 @@ public class WordListAdapter extends RecyclerView.Adapter {
     private int visibleThreshold = 2;
     private int lastVisibleItem, totalItemCount;
     private boolean loading;
-    private CardListener listener;
+    private OnLoadMoreListener listener;
     private List<Word> allWords = new ArrayList<>();
 
     public WordListAdapter() {
     }
 
-    public WordListAdapter(CardListener listener, RecyclerView recyclerView) {
-        this.listener = listener;
+    public WordListAdapter(RecyclerView recyclerView) {
         if (recyclerView.getLayoutManager() instanceof LinearLayoutManager) {
 
             final LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView
@@ -67,7 +68,7 @@ public class WordListAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemViewType(int position) {
-        return VIEW_ITEM; // TODO: Add progress bar
+        return VIEW_ITEM;
     }
 
     @NonNull
@@ -120,9 +121,19 @@ public class WordListAdapter extends RecyclerView.Adapter {
         notifyDataSetChanged();
     }
 
+    public List<Word> getWordsList(){
+        return allWords;
+    }
+
     public void setLoaded() {
         loading = false;
     }
+
+
+    public void setOnLoadMoreListener(OnLoadMoreListener listener) {
+        this.listener = listener;
+    }
+
 
 
     protected class WordListAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

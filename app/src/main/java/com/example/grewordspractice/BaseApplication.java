@@ -12,4 +12,9 @@ public class BaseApplication extends DaggerApplication {
         return DaggerAppComponent.builder().application(this).build();
     }
 
+    // TODO: Save data from new Word [x]
+    // TODO: Add Practice from SaveMode
+    // TODO: Add Analysis Screen;
+    // TODO: Add SavedWordsListActivity [x]
+
 }

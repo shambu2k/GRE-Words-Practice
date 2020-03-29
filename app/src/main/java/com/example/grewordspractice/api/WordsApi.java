@@ -13,7 +13,6 @@ import retrofit2.http.Path;
 import retrofit2.http.Url;
 
 public interface WordsApi {
-
     @GET("entries/en-gb/{word}?strictMatch=false")
     Call<WordJson> getWordData(@Header("app_id") String app_id,
                                    @Header("app_key") String app_key,

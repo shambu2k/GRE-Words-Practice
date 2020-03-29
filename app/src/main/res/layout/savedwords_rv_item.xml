@@ -1,45 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.AddNewWordActivity">
-
-    <EditText
-        android:id="@+id/addnew_edt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
-
-    <Button
-        android:id="@+id/addnew_getdata_butt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Get Data"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addnew_edt"
-        app:layout_constraintVertical_bias="0.04" />
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#e57373"
         app:cardCornerRadius="15dp"
-        android:layout_marginHorizontal="10dp"
-        app:layout_constraintVertical_bias="0.2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addnew_getdata_butt">
+        android:layout_margin="10dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -47,7 +18,7 @@
             android:paddingBottom="10dp">
 
             <TextView
-                android:id="@+id/addnew_word_tv"
+                android:id="@+id/saved_word_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_bold"
@@ -59,7 +30,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.1" />
+                app:layout_constraintVertical_bias="0.02" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/answer_container"
@@ -69,7 +40,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/addnew_word_tv"
+                app:layout_constraintTop_toBottomOf="@+id/saved_word_tv"
                 app:layout_constraintVertical_bias="0.1">
 
                 <LinearLayout
@@ -90,7 +61,7 @@
                         android:text="Definition:" />
 
                     <TextView
-                        android:id="@+id/addnew_def_tv"
+                        android:id="@+id/saved_def_tv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
@@ -109,13 +80,33 @@
                         android:text="Synonyms:" />
 
                     <TextView
-                        android:id="@+id/addnew_syn_tv"
+                        android:id="@+id/saved_syn_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="remark"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:fontFamily="@font/montserrat"
+                        android:text="Stats:" />
+
+                    <TextView
+                        android:id="@+id/saved_stats_tv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="15dp"
                         android:layout_marginLeft="15dp"
                         android:fontFamily="@font/montserrat_bold"
-                        android:text="remark"
+                        android:text="Total Times Seen: 6, Total Times Correct: 4, Total Times Wrong: 2"
                         android:textColor="@android:color/black"
                         android:textSize="20sp" />
                 </LinearLayout>
@@ -127,4 +118,4 @@
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

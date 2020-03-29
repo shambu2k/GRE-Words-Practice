@@ -2,6 +2,11 @@ package com.example.grewordspractice.di;
 
 import android.app.Application;
 
+import com.example.grewordspractice.api.WordsApi;
+
+import java.util.Arrays;
+import java.util.List;
+
 import javax.inject.Named;
 import javax.inject.Singleton;
 
@@ -25,4 +30,10 @@ public class AppModule {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
+
+    @Provides
+    static WordsApi provideApi(Retrofit retrofit){
+        return retrofit.create(WordsApi.class);
+    }
+
 }

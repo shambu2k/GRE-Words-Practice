@@ -9,13 +9,14 @@ import androidx.room.TypeConverters;
 
 import com.example.grewordspractice.utils.Converters;
 
-@Database(entities = {Word.class}, version = 1)
+@Database(entities = {Word.class, SavedWord.class}, version = 1)
 @TypeConverters({Converters.class})
 public abstract class WordDatabase extends RoomDatabase {
 
     private static WordDatabase instance;
 
     public abstract WordDao wordDao();
+    public abstract SavedWordDao savedWordDao();
 
     public static synchronized WordDatabase getInstance(Context context){
         if(instance==null){

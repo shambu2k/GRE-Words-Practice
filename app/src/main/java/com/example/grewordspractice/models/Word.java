@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey;
 import java.util.Date;
 import java.util.List;
 
-@Entity(tableName = "saved_words")
+@Entity(tableName = "temp_words")
 public class Word {
 
     @PrimaryKey(autoGenerate = true)
@@ -18,14 +18,6 @@ public class Word {
 
     private String synonym;
 
-    private boolean showInTenMin;
-
-    private boolean showNextWeek;
-
-    private boolean showNextDay;
-
-    private Date markedDate;
-
     public Word() {
     }
 
@@ -35,25 +27,11 @@ public class Word {
         this.synonym = synonym;
     }
 
-    public Word(String word, String definitions, String synonym, boolean showInTenMin, boolean showNextWeek, boolean showNextDay, Date markedDate) {
-        this.word = word;
-        this.definitions = definitions;
-        this.synonym = synonym;
-        this.showInTenMin = showInTenMin;
-        this.showNextWeek = showNextWeek;
-        this.showNextDay = showNextDay;
-        this.markedDate = markedDate;
-    }
-
-    public Word(int id, String word, String definitions, String synonym, boolean showInTenMin, boolean showNextWeek, boolean showNextDay, Date markedDate) {
+    public Word(int id, String word, String definitions, String synonym) {
         this.id = id;
         this.word = word;
         this.definitions = definitions;
         this.synonym = synonym;
-        this.showInTenMin = showInTenMin;
-        this.showNextWeek = showNextWeek;
-        this.showNextDay = showNextDay;
-        this.markedDate = markedDate;
     }
 
     public int getId() {
@@ -86,38 +64,6 @@ public class Word {
 
     public void setSynonym(String synonym) {
         this.synonym = synonym;
-    }
-
-    public boolean isShowInTenMin() {
-        return showInTenMin;
-    }
-
-    public void setShowInTenMin(boolean showInTenMin) {
-        this.showInTenMin = showInTenMin;
-    }
-
-    public boolean isShowNextWeek() {
-        return showNextWeek;
-    }
-
-    public void setShowNextWeek(boolean showNextWeek) {
-        this.showNextWeek = showNextWeek;
-    }
-
-    public boolean isShowNextDay() {
-        return showNextDay;
-    }
-
-    public void setShowNextDay(boolean showNextDay) {
-        this.showNextDay = showNextDay;
-    }
-
-    public Date getMarkedDate() {
-        return markedDate;
-    }
-
-    public void setMarkedDate(Date markedDate) {
-        this.markedDate = markedDate;
     }
 }
 
