@@ -44,9 +44,6 @@ public class MainActivity extends BaseActivity implements OnItemSwiped, View.OnC
 
     private MainViewModel viewModel;
     private RecyclerView rv;
-    private WordJson wordJson;
-    private Word word;
-    private List<String> words = new ArrayList<>();
     private WordListAdapter adapter;
     private NumberPicker np;
     private Button button_start_new;
@@ -130,6 +127,7 @@ public class MainActivity extends BaseActivity implements OnItemSwiped, View.OnC
                 return true;
             case R.id.action_practiceCard:
                 Intent intent = new Intent(this, PracticeSavedWordsActivity.class);
+                intent.putExtra("SESSION_ID", "frommain");
                 startActivity(intent);
 
         }

@@ -1,6 +1,8 @@
 package com.example.grewordspractice.di;
 
 import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
 
 import com.example.grewordspractice.api.WordsApi;
 
@@ -17,6 +19,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.example.grewordspractice.utils.Constants.BASE_OD_URL;
+import static com.example.grewordspractice.utils.Constants.PREF_FILE_NAME;
 
 @Module
 public class AppModule {

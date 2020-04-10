@@ -60,7 +60,15 @@ public class PracticeSavedWordsActivity extends BaseActivity implements OnItemSw
 
 
         viewModel = new ViewModelProvider(this, factory).get(PracticeSavedWordsViewModel.class);
-        viewModel.getDataTask(this).execute();
+        
+        if(getIntent().getExtras().getString("SESSION_ID").equals("frommain")){
+            viewModel.getDataTask(this).execute();
+        } else if(getIntent().getExtras().getString("SESSION_ID").equals("fromsaved")){
+            
+        } else {
+            Log.d(TAG, "onCreate: SESSION_ID not Matching");
+        }
+        
         adapter = new PracticeListAdapter();
         rv.setAdapter(adapter);
 

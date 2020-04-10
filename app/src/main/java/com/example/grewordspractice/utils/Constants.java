@@ -7,6 +7,7 @@ public class Constants {
     public static final String BASE_OD_URL = "https://od-api.oxforddictionaries.com/api/v2/";
     public static final String BASE_RW_URL = "https://random-word-api.herokuapp.com";
     public static final String SP_SEEN_LIST_KEY = "SAVED_SEEN SP_LIST";
+    public static final String PREF_FILE_NAME = "GREWords";
     public static List<String> RANDOM_WORD = Arrays.asList(new String[]{"","ubiquitous", "tutor", "overlay", "sharecrop", "ingenuity", "copper",
             "quoin", "biosphere", "cryptography", "reek", "bituminous", "entropy", "bee", "attract",
             "picloram", "false", "acclimatize", "acid", "trippy", "dendroid", "porter", "culture",

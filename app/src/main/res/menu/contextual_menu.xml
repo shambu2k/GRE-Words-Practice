@@ -5,13 +5,19 @@
     <item
         android:id="@+id/action_delete"
         android:icon="@drawable/ic_delete_ebebeb_24dp"
-        android:orderInCategory="1"
+        android:orderInCategory="2"
         android:title="Delete"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_select_all"
         android:icon="@drawable/ic_done_all_ebebeb_24dp"
-        android:orderInCategory="2"
+        android:orderInCategory="3"
+        android:title="Select all"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_practice"
+        android:icon="@drawable/ic_school_black_24dp"
+        android:orderInCategory="1"
         android:title="Select all"
         app:showAsAction="always" />
 

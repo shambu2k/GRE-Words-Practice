@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.grewordspractice.SharedPrefHelper;
 import com.example.grewordspractice.api.WordsApi;
 import com.example.grewordspractice.models.jsonModels.WordJson;
 import com.example.grewordspractice.utils.RandomNumberListGenerator;
@@ -20,6 +21,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+
+import javax.inject.Inject;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,6 +42,9 @@ public class WordRepository {
     private Word word;
     private Application application;
     private ProgressDialog progressDialog;
+
+    @Inject
+    SharedPrefHelper prefHelper;
 
     public WordRepository(Application application){
         this.application = application;

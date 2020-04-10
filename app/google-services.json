@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "594549968135",
+    "firebase_url": "https://gre-words-crashlytics.firebaseio.com",
+    "project_id": "gre-words-crashlytics",
+    "storage_bucket": "gre-words-crashlytics.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594549968135:android:560f70ec9bdddbee05c9a2",
+        "android_client_info": {
+          "package_name": "com.example.grewordspractice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594549968135-obe2o8p4c3c2mbt2d4qss98dv6eujnqc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.grewordspractice",
+            "certificate_hash": "8355a16cecea00b738d69d71dbf2ebadc0860739"
+          }
+        },
+        {
+          "client_id": "594549968135-vbrcl6gbjul7pacdp5a4eirrt7tipjb2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1mPK1L9sEhkoYK0g6r3ZrFHCCzF-ktHs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594549968135-vbrcl6gbjul7pacdp5a4eirrt7tipjb2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

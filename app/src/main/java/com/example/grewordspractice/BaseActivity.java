@@ -1,14 +1,9 @@
 package com.example.grewordspractice;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
-import com.example.grewordspractice.ui.AddNewViewModel;
-import com.example.grewordspractice.ui.AddNewWordActivity;
-
-import javax.inject.Inject;
 
 import dagger.android.support.DaggerAppCompatActivity;
 

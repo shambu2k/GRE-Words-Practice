@@ -14,7 +14,7 @@ public class BaseApplication extends DaggerApplication {
 
     // TODO: Save data from new Word [x]
     // TODO: Add Practice from SaveMode
-    // TODO: Add Analysis Screen;
+    // TODO: Add Analysis Screen; [x]
     // TODO: Add SavedWordsListActivity [x]
 
 }

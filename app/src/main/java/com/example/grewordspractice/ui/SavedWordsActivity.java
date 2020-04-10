@@ -44,7 +44,7 @@ public class SavedWordsActivity extends BaseActivity implements AdapterClickList
 
         @Override
         public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-            MenuItem item = menu.getItem(1);
+            MenuItem item = menu.getItem(2);
             if (adapter.getSelectedItemCount() == adapter.getItemCount()) {
                 item.setVisible(false);
             } else {
@@ -65,6 +65,10 @@ public class SavedWordsActivity extends BaseActivity implements AdapterClickList
 
                 case R.id.action_select_all:
                     selectAll();
+                    return true;
+                case R.id.action_practice:
+                    startPractice();
+                    mode.finish();
                     return true;
 
                 default:
@@ -153,5 +157,9 @@ public class SavedWordsActivity extends BaseActivity implements AdapterClickList
             }
             actionMode = null;
         }
+    }
+
+    private void startPractice(){
+
     }
 }
